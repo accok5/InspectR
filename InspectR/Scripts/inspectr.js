@@ -62,9 +62,8 @@
                     server.getRecentRequests(self.inspectorKey)
                         .done(function (result) {
                             if (result && result.length > 0) {
-
                                 self.Requests(result);
-                                
+
                                 for (var i = 0; i < result.length; i++) {
                                     for (var mimeMode in CodeMirror.mimeModes) {
                                         if (result[i].ContentType === mimeMode) {
@@ -140,7 +139,6 @@
             self.Requests.unshift(request);
 
             if (CodeMirror.mimeModes[request.ContentType]) {
-                
                 request.ContentCodeMirrorMode(request.ContentType);
                 request.ContentCodeMirrorUtil.Format();
             }
